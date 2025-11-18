@@ -1,0 +1,52 @@
+# Framework principal
+dash==2.14.2
+dash-bootstrap-components==1.5.0
+
+# Visualisation
+plotly==5.18.0
+
+# Traitement de données
+pandas==2.1.4
+numpy==1.26.2
+
+# Base de données
+sqlalchemy==2.0.23
+
+# PostgreSQL
+psycopg2-binary==2.9.9
+
+# MySQL (optionnel - décommenter si nécessaire)
+# pymysql==1.1.0
+
+# SQL Server (optionnel - décommenter si nécessaire)
+# pyodbc==5.0.1
+
+# Configuration
+python-dotenv==1.0.0
+pyyaml==6.0.1
+
+# Cache (optionnel mais recommandé)
+redis==5.0.1
+flask-caching==2.1.0
+
+# Export de données
+openpyxl==3.1.2
+xlsxwriter==3.1.9
+
+# Utilitaires
+python-dateutil==2.8.2
+
+# Tests (optionnel)
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# Qualité de code (optionnel)
+black==23.12.1
+flake8==6.1.0
+mypy==1.7.1
+
+# Documentation (optionnel)
+sphinx==7.2.6
+
+# Monitoring et logging (optionnel)
+sentry-sdk==1.39.1
