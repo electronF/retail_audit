@@ -11,6 +11,7 @@ import plotly.graph_objects as go
 from src.components.layout.header import create_header
 from src.components.layout.main_view import create_main_content
 from src.components.layout.header import create_header
+from src.components.layout.footer import create_footer_bar
 
 
 # Imports des modules personnalisés (à adapter selon votre structure)
@@ -61,6 +62,7 @@ app.layout = html.Div([
     dbc.Container([
         create_main_content(INDICATORS, CATEGORIES, GRANULARITIES) 
     ], fluid=True),
+    create_footer_bar(),
     
     # Store pour les données
     dcc.Store(id='data-store')

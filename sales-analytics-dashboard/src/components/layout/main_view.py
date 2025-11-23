@@ -8,12 +8,12 @@ def create_main_content(indicators:list, categories:list, granularities:list):
         # Side bar content
         dbc.Col([
                 create_sidebar(indicators),
-            ], width=2, className="pe-0"),
+            ], width=3, className="pe-0"),
             
             # Main content
             dbc.Col([
                 create_page_content(indicators, categories, granularities)
-            ], width=10)
-    ])
+            ], width=9)
+    ], className="pe-0")
     
      
