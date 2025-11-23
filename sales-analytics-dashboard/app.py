@@ -8,6 +8,11 @@ import pandas as pd
 from datetime import datetime, timedelta
 import plotly.graph_objects as go
 
+from src.components.layout.header import create_header
+from src.components.layout.main_view import create_main_content
+from src.components.layout.header import create_header
+
+
 # Imports des modules personnalisés (à adapter selon votre structure)
 # from src.database.connection import get_db_connection
 # from src.database.query_builder import QueryBuilder
@@ -47,163 +52,14 @@ CATEGORIES = [
 # LAYOUT DE L'APPLICATION
 # ============================================
 
-def create_header():
-    """Crée l'en-tête de l'application"""
-    return dbc.Navbar(
-        dbc.Container([
-            dbc.Row([
-                dbc.Col([
-                    html.Div([
-                        html.H3("DataBank", className="mb-0", style={'color': 'white'}),
-                        html.Small("Nom de la base de données", style={'color': '#95a5a6'})
-                    ])
-                ], width=3),
-                dbc.Col([
-                    dbc.Nav([
-                        dbc.NavItem(dbc.NavLink("tableau", active=True, href="#")),
-                        dbc.NavItem(dbc.NavLink("graphique", href="#")),
-                        dbc.NavItem(dbc.NavLink("Telechargement", href="#"))
-                    ], pills=True)
-                ], width=6, className="d-flex justify-content-center"),
-            ], className="w-100 align-items-center")
-        ], fluid=True),
-        color="#16697a",
-        dark=True,
-        className="mb-3"
-    )
 
-def create_sidebar():
-    """Crée la barre latérale avec les filtres"""
-    return html.Div([
-        # Section Indicateurs
-        html.Div([
-            html.H6("Indicateurs", className="mb-2 fw-bold"),
-            dcc.Dropdown(
-                id='indicator-dropdown',
-                options=INDICATORS,
-                value='ca_total',
-                clearable=False,
-                className="mb-3"
-            ),
-            html.Div(id='indicator-list', className="mb-3")
-        ], className="mb-4"),
-        
-        # Section Région
-        html.Div([
-            html.H6("Région", className="mb-2 fw-bold"),
-            dcc.Dropdown(
-                id='region-dropdown',
-                options=[
-                    {'label': 'Toutes les régions', 'value': 'all'},
-                    {'label': 'Nord', 'value': 'nord'},
-                    {'label': 'Sud', 'value': 'sud'},
-                    {'label': 'Est', 'value': 'est'},
-                    {'label': 'Ouest', 'value': 'ouest'}
-                ],
-                value='all',
-                clearable=False
-            )
-        ], className="mb-4"),
-        
-        # Section Période
-        html.Div([
-            html.H6("Période", className="mb-2 fw-bold"),
-            dcc.DatePickerRange(
-                id='date-picker',
-                start_date=datetime.now() - timedelta(days=365),
-                end_date=datetime.now(),
-                display_format='DD/MM/YYYY',
-                className="w-100"
-            )
-        ], className="mb-4"),
-        
-    ], className="sidebar p-3")
-
-def create_filter_section():
-    """Crée la section des filtres au-dessus du contenu principal"""
-    return dbc.Row([
-        dbc.Col([
-            html.Div([
-                html.Label("Indicateurs", className="fw-bold mb-1"),
-                dcc.Dropdown(
-                    id='main-indicator-dropdown',
-                    options=INDICATORS,
-                    value='ca_total',
-                    clearable=False
-                )
-            ])
-        ], width=3),
-        
-        dbc.Col([
-            html.Div([
-                html.Label("Catégorie", className="fw-bold mb-1"),
-                dcc.Dropdown(
-                    id='category-dropdown',
-                    options=CATEGORIES,
-                    value='all',
-                    clearable=False
-                )
-            ])
-        ], width=3),
-        
-        dbc.Col([
-            html.Div([
-                html.Label("Granularité", className="fw-bold mb-1"),
-                dcc.Dropdown(
-                    id='granularity-dropdown',
-                    options=GRANULARITIES,
-                    value='entreprise',
-                    clearable=False
-                )
-            ])
-        ], width=3),
-        
-    ], className="mb-4 p-3 bg-light rounded")
-
-def create_main_content():
-    """Crée la zone de contenu principal"""
-    return html.Div([
-        # Filtres en haut
-        create_filter_section(),
-        
-        # Onglets pour basculer entre tableau et graphique
-        dbc.Tabs([
-            dbc.Tab(
-                html.Div(id='chart-container', className="p-4"),
-                label="Graphique",
-                tab_id="tab-chart"
-            ),
-            dbc.Tab(
-                html.Div(id='table-container', className="p-4"),
-                label="Tableau",
-                tab_id="tab-table"
-            )
-        ], id='tabs', active_tab='tab-chart'),
-        
-        # Loading overlay
-        dcc.Loading(
-            id="loading",
-            type="circle",
-            children=html.Div(id="loading-output")
-        )
-    ])
 
 # Layout principal
 app.layout = html.Div([
     create_header(),
     
     dbc.Container([
-        dbc.Row([
-            # Sidebar
-            dbc.Col([
-                create_sidebar()
-            ], width=2, className="pe-0"),
-            
-            # Main content
-            dbc.Col([
-                create_main_content()
-            ], width=10)
-        ])
+        create_main_content(INDICATORS, CATEGORIES, GRANULARITIES) 
     ], fluid=True),
     
     # Store pour les données
@@ -432,4 +288,4 @@ app.index_string = '''
 # ============================================
 
 if __name__ == '__main__':
-    app.run_server(debug=True, host='0.0.0.0', port=8050)
+    app.run(debug=True, host='0.0.0.0', port=8050)
