@@ -6,7 +6,10 @@ __pycache__/
 .Python
 venv/
 my_venv/
+<<<<<<< HEAD
 env/
+=======
+>>>>>>> main
 ENV/
 
 # Environment
