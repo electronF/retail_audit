@@ -36,3 +36,41 @@ Thumbs.db
 .pytest_cache/
 htmlcov/
 .coverage
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+retail_audit_venv/
+env/
+ENV/
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Data
+data/cache/*
+data/exports/*
+!data/cache/.gitkeep
+!data/exports/.gitkeep
+
+# Logs
+logs/*.log
+!logs/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Tests
+.pytest_cache/
+htmlcov/
+.coverage

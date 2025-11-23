@@ -7,6 +7,7 @@ __pycache__/
 venv/
 retail_audit_venv/
 env/
+my_env/
 ENV/
 
 # Environment

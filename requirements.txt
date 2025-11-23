@@ -4,7 +4,11 @@ dash-bootstrap-components==1.5.0
 
 # Visualisation
 plotly==5.18.0
+<<<<<<< HEAD
 plotly-express
+=======
+plotly_express
+>>>>>>> main
 
 # Traitement de données
 pandas==2.1.4
