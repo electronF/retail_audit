@@ -1,0 +1,50 @@
+indicators:
+  - id: ca_total
+    name: "Chiffre d'Affaires Total"
+    unit: "€"
+    query_type: direct
+    sql_column: montant_vente
+    aggregation: sum
+    
+  - id: quantite_vendue
+    name: "Quantité Vendue"
+    unit: "unités"
+    query_type: direct
+    sql_column: quantite
+    aggregation: sum
+    
+  - id: nombre_transactions
+    name: "Nombre de Transactions"
+    unit: "transactions"
+    query_type: direct
+    sql_column: transaction_id
+    aggregation: count_distinct
+    
+  - id: panier_moyen
+    name: "Panier Moyen"
+    unit: "€"
+    query_type: computed
+    calculation: "SUM(montant_vente) / COUNT(DISTINCT transaction_id)"
+    
+  - id: marge_commerciale
+    name: "Marge Commerciale"
+    unit: "%"
+    query_type: computed
+    calculation: "(SUM(montant_vente) - SUM(cout_achat)) / SUM(montant_vente) * 100"
+
+granularities:
+  - id: entreprise
+    name: "Entreprise"
+    columns: []
+    
+  - id: categorie
+    name: "Catégorie"
+    columns: [categorie_principale]
+    
+  - id: sous_categorie
+    name: "Sous-catégorie"
+    columns: [categorie_principale, sous_categorie]
+    
+  - id: produit
+    name: "Produit"
+    columns: [categorie_principale, sous_categorie, produit_id, nom_produit]

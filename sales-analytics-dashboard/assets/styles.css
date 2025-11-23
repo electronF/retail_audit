@@ -1,0 +1,89 @@
+/* Styles personnalisés pour le dashboard */
+
+:root {
+    --primary-color: #16697a;
+    --secondary-color: #489fb5;
+    --accent-color: #82c0cc;
+    --background-color: #ffa62b;
+    --text-color: #2c3e50;
+    --border-color: #bdc3c7;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.sidebar {
+    background-color: #ecf0f1;
+    min-height: calc(100vh - 80px);
+    border-right: 1px solid var(--border-color);
+    padding: 20px;
+}
+
+.main-content {
+    padding: 20px;
+}
+
+.filter-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.chart-container {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Dropdowns */
+.Select-control {
+    border-radius: 4px;
+    border-color: var(--border-color);
+}
+
+.Select-control:hover {
+    border-color: var(--secondary-color);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+/* Cards */
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* Tables */
+.dash-table-container {
+    font-family: monospace;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Loading */
+._dash-loading {
+    color: var(--primary-color);
+}
