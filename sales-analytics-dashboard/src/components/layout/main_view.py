@@ -16,4 +16,4 @@ def create_main_content(indicators:list, categories:list, granularities:list):
             ], width=10)
     ])
     
-    
+     

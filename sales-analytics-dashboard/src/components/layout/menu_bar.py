@@ -3,11 +3,11 @@ import dash_bootstrap_components as dbc
 
 from src.utils.style  import Colors as colors
 
-
+ 
 def create_menu_bar():
     """Crée l'en-tête de l'application"""
     return dbc.Navbar(
-        dbc.Container([
+        dbc.Container([ 
             dbc.Row([
                 dbc.Col([
                     html.Div([

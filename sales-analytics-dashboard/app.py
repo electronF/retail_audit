@@ -7,7 +7,7 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 from datetime import datetime, timedelta
 import plotly.graph_objects as go
-
+ 
 from src.components.layout.header import create_header
 from src.components.layout.main_view import create_main_content
 from src.components.layout.header import create_header

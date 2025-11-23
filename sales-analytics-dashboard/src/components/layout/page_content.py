@@ -8,7 +8,7 @@ def create_filter_section(indicators:list, categories:list, granularities:list):
         dbc.Col([
             html.Div([
                 html.Label("Indicateurs", className="fw-bold mb-1"),
-                dcc.Dropdown(
+                dcc.Dropdown( 
                     id='main-indicator-dropdown',
                     options=indicators,
                     value='ca_total',

@@ -5,7 +5,7 @@ import dash_bootstrap_components as dbc
 import pandas as pd
 from datetime import datetime, timedelta
 import plotly.graph_objects as go
-
+ 
 def create_sidebar(indicators:list):
     """Crée la barre latérale avec les filtres"""
     return html.Div([

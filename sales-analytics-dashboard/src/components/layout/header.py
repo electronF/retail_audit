@@ -6,4 +6,4 @@ def create_header():
     return dbc.Container([
         create_title_bar(),
         create_menu_bar(),
-    ], fluid=True, className="p-0")
+    ], fluid=True, className="p-0")  
